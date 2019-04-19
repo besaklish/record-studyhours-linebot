@@ -36,10 +36,9 @@
       err => {
           // LIFF initialization failed
           user_status_span.innerText = "err LIFF initialization failed: " + err.toString();
-      }
-      );
+      });
 
-      user_status_span.innerText = "LIFF init done"
+      user_status_span.innerText = "LIFF init done";
 
       data_url = "https://2t82fs2tia.execute-api.ap-northeast-1.amazonaws.com/dev/data/?access_token=" + access_token;
       let data_json;
