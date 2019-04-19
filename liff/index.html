@@ -43,7 +43,7 @@
             data_json = data;
           })
           .catch(err =>{
-            user_status_span.innerText = "access url fail"
+            user_status_span.innerText = "access url fail: " + err.toString();
             console.log(err);
           });
 
