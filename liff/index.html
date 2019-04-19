@@ -38,7 +38,7 @@
       .then(res =>{
         if(res.ok){
           add_log("access url correctly");
-          return response.json();
+          return res.json();
         }
       })
       .then(data =>{
