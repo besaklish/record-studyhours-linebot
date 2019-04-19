@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>My LIFF app</title>
+</head>
+
+<body>
+  <script src="https://d.line-scdn.net/liff/1.0/sdk.js"></script>
+  <script>
+    liff.init(
+        data => {
+            const user_id = data.context.user_id;
+        },
+        err => {
+            // LIFF initialization failed
+        }
+    )
+  </script>
+</body>
+
+</html>
