@@ -6,7 +6,7 @@
 </head>
 
 <body>
-  <h1>Your id is <span id="user_name"></span>, right?</h1>
+  <h1>Your name is <span id="user_name"></span>, right?</h1>
   <script src="https://d.line-scdn.net/liff/1.0/sdk.js"></script>
   <script>
     let init = () =>{
@@ -18,7 +18,8 @@
           liff.getProfile()
           .then(profile => {
             const user_name = profile.displayName;
-            let user_name_span = document.getElementById("user_name")
+            let user_name_span = document.getElementById("user_name");
+            user_name_span.innerText = user_name;
           })
           .catch(err =>{
             console.log('err', err);
