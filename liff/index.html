@@ -12,11 +12,11 @@
   <script src="https://d.line-scdn.net/liff/1.0/sdk.js"></script>
   <script>
     let init = () =>{
-      liff.init(
-      data => {
-          let user_status_span = document.getElementById("user_status");
+      let user_status_span = document.getElementById("user_status");
           user_status_span.innerText = "init started"
 
+      liff.init(
+      data => {
           const user_id = data.context.userId;
           const access_token = liff.getAccessToken();
 
@@ -29,30 +29,28 @@
           .catch(err =>{
             console.log('err', err);
           });
-
-          data_url = "https://2t82fs2tia.execute-api.ap-northeast-1.amazonaws.com/dev/data/?access_token=" + access_token;
-          let data_json;
-          fetch(data_url)
-          .then(res =>{
-            if(res.ok){
-              user_status_span.innerText = "access url correctly."
-              return response.json();
-            }
-          })
-          .then(data =>{
-            data_json = data;
-          })
-          .catch(err =>{
-            user_status_span.innerText = "access url fail: " + err.toString();
-            console.log(err);
-          });
-
-
         },
       err => {
           // LIFF initialization failed
       }
-      )
+      );
+
+      data_url = "https://2t82fs2tia.execute-api.ap-northeast-1.amazonaws.com/dev/data/?access_token=" + access_token;
+      let data_json;
+      fetch(data_url)
+      .then(res =>{
+        if(res.ok){
+          user_status_span.innerText = "access url correctly."
+          return response.json();
+        }
+      })
+      .then(data =>{
+        data_json = data;
+      })
+      .catch(err =>{
+        user_status_span.innerText = "access url fail: " + err.toString();
+        console.log(err);
+      });
     };
 
     window.onload = init();
