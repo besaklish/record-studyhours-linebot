@@ -25,13 +25,17 @@
             const user_name = profile.displayName;
             let user_name_span = document.getElementById("user_name");
             user_name_span.innerText = user_name;
+
+            user_status_span.innerText = "getProfile done"
           })
           .catch(err =>{
             console.log('err', err);
+            user_status_span.innerText = "err during getProfile: " + err.toString();
           });
         },
       err => {
           // LIFF initialization failed
+          user_status_span.innerText = "err LIFF initialization failed: " + err.toString();
       }
       );
 
