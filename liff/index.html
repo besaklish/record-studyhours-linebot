@@ -15,7 +15,7 @@
   </div>
   <p>response is: <span id="http_response"></span></p>
   <button onclick="location.reload();">Reload the page</button>
-  <button onclick="access_data();"></button>
+  <button onclick="access_data();">Access data</button>
   <script src="https://d.line-scdn.net/liff/1.0/sdk.js"></script>
   <script>
     let add_log = (log) =>{
@@ -29,6 +29,7 @@
     };
 
     let access_data = () =>{
+      add_log("access_data started");
       data_url = "https://2t82fs2tia.execute-api.ap-northeast-1.amazonaws.com/dev/data/?access_token=" + access_token;
       let data_json = {};
       fetch(data_url)
