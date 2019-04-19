@@ -6,16 +6,24 @@
 </head>
 
 <body>
+  <h1>Your id is <span id="user_id"></span>, right?</h1>
   <script src="https://d.line-scdn.net/liff/1.0/sdk.js"></script>
   <script>
-    liff.init(
-        data => {
-            const user_id = data.context.user_id;
-        },
-        err => {
-            // LIFF initialization failed
-        }
-    )
+    window.onload = init();
+
+    let init = () =>{
+      liff.init(
+      data => {
+          const user_id = data.context.user_id;
+          let user_id_span = document.getElementById("user_id");
+          user_id_span.innerText = user_id;
+      },
+      err => {
+          // LIFF initialization failed
+      }
+      )
+
+    };
   </script>
 </body>
 
