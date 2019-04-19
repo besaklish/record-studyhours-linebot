@@ -13,6 +13,7 @@
       <li>Window opened</li>
     </ul>
   </div>
+  <p>response is: <span id="http_response"></span></p>
   <button onclick="location.reload();">Reload the page</button>
   <script src="https://d.line-scdn.net/liff/1.0/sdk.js"></script>
   <script>
@@ -64,7 +65,8 @@
         }
       })
       .then(data =>{
-        data_json = data;
+        let response_span = document.getElementById("http_response");
+        response_span.innerText = data.message;
       })
       .catch(err =>{
         add_log("access url fail: " + err.toString());
