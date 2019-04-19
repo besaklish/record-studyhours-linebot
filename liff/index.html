@@ -12,7 +12,7 @@
     let init = () =>{
       liff.init(
       data => {
-          const user_id = data.context.user_id;
+          const user_id = data.context.userId;
           let user_id_span = document.getElementById("user_id");
           user_id_span.innerText = user_id;
       },
