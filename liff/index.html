@@ -15,9 +15,11 @@
   </div>
   <p>response is: <span id="http_response"></span></p>
   <button onclick="location.reload();">Reload the page</button>
-  <button onclick="access_data();">Access data</button>
+  <button onclick="access_data(access_token);">Access data</button>
   <script src="https://d.line-scdn.net/liff/1.0/sdk.js"></script>
   <script>
+    let access_token;
+
     let add_log = (log) =>{
       let logger_ul = document.getElementById("logger");
       let new_log = document.createElement("li");
@@ -28,7 +30,7 @@
       user_status_span.innerText = log;
     };
 
-    let access_data = () =>{
+    let access_data = (access_token) =>{
       add_log("access_data started");
       data_url = "https://2t82fs2tia.execute-api.ap-northeast-1.amazonaws.com/dev/data/?access_token=" + access_token;
       let data_json = {};
@@ -55,7 +57,7 @@
       liff.init(
       data => {
           const user_id = data.context.userId;
-          const access_token = liff.getAccessToken();
+          access_token = liff.getAccessToken();
 
           liff.getProfile()
           .then(profile => {
@@ -77,7 +79,7 @@
 
       add_log("LIFF init done");
 
-      access_data();
+      access_data(access_token);
     };
 
     window.onload = init();
