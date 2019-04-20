@@ -94,10 +94,10 @@
       }
     };
 
-    let init = () =>{
+    async let init = () =>{
       add_log("init started");
 
-      liff.init(
+      await liff.init(
       data => {
           user_id = data.context.userId;
           access_token = liff.getAccessToken();
