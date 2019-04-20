@@ -14,6 +14,7 @@
     </ul>
   </div>
   <p>response is: <span id="http_response"></span></p>
+  <p>the data is: <span id="records"></span></p>
   <button onclick="location.reload();">Reload the page</button>
   <button onclick="access_data(user_id, access_token);">Access data</button>
   <script src="https://d.line-scdn.net/liff/1.0/sdk.js"></script>
@@ -34,7 +35,6 @@
     let access_data = (user_id, access_token) =>{
       add_log("access_data started, user_id is " + user_id + " and access_token is " + access_token);
       data_url = "https://2t82fs2tia.execute-api.ap-northeast-1.amazonaws.com/dev/data/?access_token=" + access_token + "&user_id=" + user_id;
-      let data_json = {};
       fetch(data_url)
       .then(res =>{
         if(res.ok){
@@ -45,6 +45,9 @@
       .then(data =>{
         let response_span = document.getElementById("http_response");
         response_span.innerText = data.message + " and you are validated: " + data.validated;
+
+        let records_span = document.getElementById("records");
+        records_span.innerText = data.records;
       })
       .catch(err =>{
         add_log("access url fail: " + err.toString());
