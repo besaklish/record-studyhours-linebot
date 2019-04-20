@@ -96,10 +96,10 @@
       }
     };
 
-    async let init = () =>{
+    let init = () =>{
       add_log("init started");
 
-      await liff.init(
+      liff.init(
       data => {
           user_id = data.context.userId;
           access_token = liff.getAccessToken();
@@ -116,6 +116,8 @@
             console.log('err', err);
             add_log("err during getProfile: " + err.toString());
           });
+          
+          access_data(user_id, access_token);
         },
       err => {
           // LIFF initialization failed
@@ -124,7 +126,6 @@
 
       add_log("LIFF init done");
 
-      access_data(user_id, access_token);
     };
 
     window.onload = init();
