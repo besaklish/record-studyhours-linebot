@@ -1,7 +1,7 @@
 import logging
 from datetime import datetime
 
-from boto3.dynamodb.conditions import Attr
+from boto3.dynamodb.conditions import Attr, Key
 
 from .user_table_manager import UserTableManager
 
@@ -61,3 +61,8 @@ class RecordTableManager:
                 ":te": timestamp_end
             }
         )
+
+    def get_all_user_record(self, user_id):
+        return self.record_table.query(
+            KeyConditionExpression=Key("user_id").eq(user_id)
+            )["Items"]
