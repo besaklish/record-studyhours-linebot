@@ -21,22 +21,23 @@
           </tr>
         </table>
     </div>
-  </div>
+
 
 
 
   <!-- For debugging -->
-  <div uk-grid>
-    <h1>Your name is <span id="user_name"></span>, right?</h1>
-    <p>status now is: <span id="user_status"></span></p>
-    <div>
-      <ul id="logger">
-        <li>Window opened</li>
-      </ul>
+    <div uk-grid>
+      <h1>Your name is <span id="user_name"></span>, right?</h1>
+      <p>status now is: <span id="user_status"></span></p>
+      <div>
+        <ul id="logger">
+          <li>Window opened</li>
+        </ul>
+      </div>
+      <p>response is: <span id="http_response"></span></p>
+    
+      <button class="uk-button uk-button-default" onclick="location.reload();">Reload the page</button>
     </div>
-    <p>response is: <span id="http_response"></span></p>
-  
-    <button class="uk-button uk-button-default" onclick="location.reload();">Reload the page</button>
   </div>
 
   <!-- javascript -->
