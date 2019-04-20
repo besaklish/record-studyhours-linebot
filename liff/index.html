@@ -14,13 +14,21 @@
     </ul>
   </div>
   <p>response is: <span id="http_response"></span></p>
-  <p>the data is: <span id="records"></span></p>
+  <table id="records">
+    <tr>
+      <th>start</th>
+      <th>end</th>
+    </tr>
+  </table>
   <button onclick="location.reload();">Reload the page</button>
   <button onclick="access_data(user_id, access_token);">Access data</button>
+
+  <!-- javascript -->
   <script src="https://d.line-scdn.net/liff/1.0/sdk.js"></script>
   <script>
     let access_token;
     let user_id;
+    let records;
 
     let add_log = log =>{
       let logger_ul = document.getElementById("logger");
@@ -47,12 +55,28 @@
         response_span.innerText = data.message + " and you are validated: " + data.validated;
 
         let records_span = document.getElementById("records");
-        records_span.innerText = data.records;
+        show_records(data.records);
       })
       .catch(err =>{
         add_log("access url fail: " + err.toString());
         console.log(err);
       });
+    };
+
+    let show_records = records =>{
+      let record_table = document.getElementById("records");
+
+      for (record of records){
+        let tr = document.createElement("tr");
+        let td_start = document.createElement("td");
+        let td_end = document.createElement("td");
+
+        td_start.innerText = record.start;
+        td_end.innerText = record.end;
+        tr.appendChild(td_start);
+        tr.appendChild(td_end);
+        record_table.appendChild(tr);
+      }
     };
 
     let init = () =>{
