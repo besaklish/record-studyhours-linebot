@@ -30,9 +30,9 @@
       user_status_span.innerText = log;
     };
 
-    let access_data = (access_token) =>{
+    let access_data = (user_id, access_token) =>{
       add_log("access_data started");
-      data_url = "https://2t82fs2tia.execute-api.ap-northeast-1.amazonaws.com/dev/data/?access_token=" + access_token;
+      data_url = "https://2t82fs2tia.execute-api.ap-northeast-1.amazonaws.com/dev/data/?access_token=" + access_token + "&user_id=" + user_id;
       let data_json = {};
       fetch(data_url)
       .then(res =>{
@@ -43,7 +43,7 @@
       })
       .then(data =>{
         let response_span = document.getElementById("http_response");
-        response_span.innerText = data.message;
+        response_span.innerText = data.message + " and you are validated: " + data.validated;
       })
       .catch(err =>{
         add_log("access url fail: " + err.toString());
