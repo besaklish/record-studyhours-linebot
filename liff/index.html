@@ -86,12 +86,12 @@
       for (record of records){
         let tr = document.createElement("tr");
         let td_start = document.createElement("td");
-        let td_end = document.createElement("td");
+        let td_timedelta = document.createElement("td");
 
         td_start.innerText = record.start;
-        td_end.innerText = record.end;
+        td_timedelta.innerText = record.timedelta;
         tr.appendChild(td_start);
-        tr.appendChild(td_end);
+        tr.appendChild(td_timedelta);
         record_table.appendChild(tr);
       }
     };
