@@ -67,6 +67,12 @@ functions:
       - http:
           path: /
           method: post
+  data-handler:
+    handler: handler.data_handler
+    events:
+      - http:
+          path: /data/
+          method: get
 
 #    The following are a few example events you can configure
 #    NOTE: Please make sure to change your handler code to work with those events
