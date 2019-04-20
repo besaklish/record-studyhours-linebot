@@ -6,6 +6,26 @@
 </head>
 
 <body>
+  <!-- For prod. -->
+  <div class="uk-container uk-container-center uk-margin-top uk-margin-large-bottom">
+    <div uk-grid style='background-image: url("./study.jpg");'>
+      <h1>勉強の記録確認ページ</h1>
+    </div>
+    <div uk-grid>
+      <table id="records">
+          <tr>
+            <th>開始時刻</th>
+            <th>勉強時間</th>
+            <!-- <th>勉強の種類</th>
+            <th>コメント</th> -->
+          </tr>
+        </table>
+    </div>
+  </div>
+
+
+
+  <!-- For debugging -->
   <h1>Your name is <span id="user_name"></span>, right?</h1>
   <p>status now is: <span id="user_status"></span></p>
   <div>
@@ -14,12 +34,7 @@
     </ul>
   </div>
   <p>response is: <span id="http_response"></span></p>
-  <table id="records">
-    <tr>
-      <th>start</th>
-      <th>end</th>
-    </tr>
-  </table>
+
   <button onclick="location.reload();">Reload the page</button>
   <button onclick="access_data(user_id, access_token);">Access data</button>
 
