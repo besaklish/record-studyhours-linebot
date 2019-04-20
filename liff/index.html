@@ -21,7 +21,7 @@
     let access_token;
     let user_id;
 
-    let add_log = (log) =>{
+    let add_log = log =>{
       let logger_ul = document.getElementById("logger");
       let new_log = document.createElement("li");
       new_log.innerText = log;
@@ -59,7 +59,7 @@
       data => {
           user_id = data.context.userId;
           access_token = liff.getAccessToken();
-          add_log("user_id: " + user_id)
+          add_log("user_id: " + user_id + " and access_token: " + access_token);
 
           liff.getProfile()
           .then(profile => {
@@ -81,6 +81,7 @@
 
       add_log("LIFF init done");
 
+      add_log("user_id: " + user_id + " and access_token: " + access_token);
       access_data(user_id, access_token);
     };
 
