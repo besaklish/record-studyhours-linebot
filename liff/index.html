@@ -59,6 +59,7 @@
       data => {
           user_id = data.context.userId;
           access_token = liff.getAccessToken();
+          add_log("user_id: " + user_id)
 
           liff.getProfile()
           .then(profile => {
