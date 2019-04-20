@@ -32,7 +32,7 @@
     };
 
     let access_data = (user_id, access_token) =>{
-      add_log("access_data started");
+      add_log("access_data started, user_id is " + user_id + " and access_token is " + access_token);
       data_url = "https://2t82fs2tia.execute-api.ap-northeast-1.amazonaws.com/dev/data/?access_token=" + access_token + "&user_id=" + user_id;
       let data_json = {};
       fetch(data_url)
