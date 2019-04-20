@@ -15,10 +15,11 @@
   </div>
   <p>response is: <span id="http_response"></span></p>
   <button onclick="location.reload();">Reload the page</button>
-  <button onclick="access_data(access_token);">Access data</button>
+  <button onclick="access_data(user_id, access_token);">Access data</button>
   <script src="https://d.line-scdn.net/liff/1.0/sdk.js"></script>
   <script>
     let access_token;
+    let user_id;
 
     let add_log = (log) =>{
       let logger_ul = document.getElementById("logger");
@@ -56,7 +57,7 @@
 
       liff.init(
       data => {
-          const user_id = data.context.userId;
+          user_id = data.context.userId;
           access_token = liff.getAccessToken();
 
           liff.getProfile()
@@ -79,7 +80,7 @@
 
       add_log("LIFF init done");
 
-      access_data(access_token);
+      access_data(user_id, access_token);
     };
 
     window.onload = init();
