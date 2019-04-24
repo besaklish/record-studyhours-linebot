@@ -15,7 +15,7 @@ def _format_record(record):
       datetime_end - datetime_start
       )
     datetime_start_jst = time_manager.utc_to_jst(datetime_start)
-    time_start_string = datetime_start_jst.isoformat()
+    time_start_string = datetime_start_jst.strftime("%Y-%m-%d %H:%M")
 
     return dict(
             user_id=user_id,
